@@ -40,8 +40,6 @@ class Ui_Window(QtWidgets.QWidget):
         self.client_list.setDisabled(True)
         #self.chat_console.setDisabled(True)
         self.chat_console.setReadOnly(True)
-        self.connected = True
-        self.toggle_gui_active_area()
 
         self.connect_button.clicked.connect(self.connect)
         self.send_button.clicked.connect(self.send)
@@ -51,10 +49,11 @@ class Ui_Window(QtWidgets.QWidget):
 
     def set_client(self, get_client_function):
         """Binds the given client obtaining function as 'self.get_client_instance' and also,
-        Connects the alert signal to the right slot."""
+        Connects the alert signal to the right slot and sets the correct active area."""
 
         self.get_client_instance = get_client_function
         self.get_client_instance().alert_signal.signal.connect(self.alert_from_client_core)
+        self.set_gui_active_area()
 
     def alert_from_client_core(self):
         """Calls the alert method by giving the right message 
@@ -79,12 +78,11 @@ class Ui_Window(QtWidgets.QWidget):
         dialog_window.setLayout(alert_layout)
         dialog_window.exec_()
 
-    def toggle_gui_active_area(self):
-        """Based on the connected status, it toggles the active area, 
-        Between connecting area and chatting area."""
+    def set_gui_active_area(self):
+        """Based on the connection status, it sets the active area, 
+        Either of connecting area and chatting area."""
 
-        condition = self.connected
-        self.connected = not(condition)
+        condition = not(self.get_client_instance().connected)
         self.message_entry.setDisabled(condition)
         self.send_button.setDisabled(condition)
         self.address_entry.setDisabled(not(condition))
@@ -105,7 +103,7 @@ class Ui_Window(QtWidgets.QWidget):
         else:
             status = self.get_client_instance().connect(server_address, client_name)
             if status == 0:
-                self.toggle_gui_active_area()
+                self.set_gui_active_area()
             elif status == 1:
                 self.alert("Server denied your request as it is busy.\nTry again later!")
             else:

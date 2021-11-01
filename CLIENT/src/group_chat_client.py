@@ -132,7 +132,7 @@ Its advisable to close the window and reopen the application.\n\
             self.alert_message = message
             self.alert_signal.signal.emit()
             #self.gui_window.alert(message)
-        self.gui_window.toggle_gui_active_area()
+        self.gui_window.set_gui_active_area()
 
     def send_chat_message(self, message):
         """Gets the given string chat message and sends it to the server."""
@@ -150,7 +150,7 @@ Its advisable to close the window and reopen the application.\n\
             self.client_socket.close()
             self.message_receive_thread.join()
             # As a new socket will be reopenned in the same name, we have to close it second time.
-            self.client_socket.close()
+        self.client_socket.close()
 
 
 #def ...(...):
