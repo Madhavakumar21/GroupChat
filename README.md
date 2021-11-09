@@ -67,7 +67,6 @@ A simple implementation of group chat where the client users can send and receiv
 2. Next, give your name. This name will be showed to the other clients when chatting. Finally, press the *'Connect'* button and you will be connected to the server. If the server already has the maximum number of clients it can handle, then it will deny your request.
 
 <img src = "./CLIENT/assets/images/Server_connection.png" alt = "./CLIENT/assets/images/Server_connection.png" width = "250">
-
 <img src = "./CLIENT/assets/images/Server_denial.png" alt = "./CLIENT/assets/images/Server_denial.png" width = "250">
 
 3. Once you are connected with the server, you are ready to chat :thumbsup:. The list of clients connected to the server will be displayed in the top left-hand-side green box. You can type your message in the *Entry* in the bottom of the window and press *Enter* key or the *'Send'* button.
