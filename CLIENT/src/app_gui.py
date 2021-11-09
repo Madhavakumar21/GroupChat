@@ -105,7 +105,7 @@ class Ui_Window(QtWidgets.QWidget):
             if status == 0:
                 self.set_gui_active_area()
             elif status == 1:
-                self.alert("Server denied your request as it is busy.\nTry again later!")
+                self.alert("Server denied your request as max. no. of clients are connected.\nTry again later!")
             else:
                 self.alert("Something went wrong when connecting with the server.\nTry again or try later.")
 

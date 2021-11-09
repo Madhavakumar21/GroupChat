@@ -18,7 +18,7 @@ SERVER CONFIG
 #def ...(...):
 
 # Server Core Configurations
-VERSION                             = "1.0.3"
+VERSION                             = "1.0.4"
 MAX_CLIENTS                         = 5
 MAX_MESSAGE_LENGTH                  = 1024
 SERVER_LISTENING_PORT               = 50000

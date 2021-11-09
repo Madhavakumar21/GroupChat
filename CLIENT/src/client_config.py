@@ -18,7 +18,7 @@ CLIENT CONFIG
 #def ...(...):
 
 # Client Core Configurations
-VERSION                             = "1.0.3"
+VERSION                             = "1.0.4"
 MAX_MESSAGE_LENGTH                  = 1024
 MAX_CHAT_CONTENT                    = 900
 MAX_CLIENT_NAME_LENGTH              = 24

@@ -63,7 +63,7 @@ STATE: Idle\n")
         if len(self.live_connections) == MAX_CLIENTS:
             client_connection.send(DENY_MESSAGE.encode())
             client_connection.close()
-            print(f"Request denied for {client_address}\n")
+            print(f"Request denied for {client_address} as max. no. of clients are connected\n")
         else:
             client_interface = ClientInterface(self.next_client_id_number,\
                 client_connection, client_address)
@@ -97,7 +97,8 @@ STATE: Idle\n")
                 client_id_number = client_interface.id_no
                 self.remove_client_entity(client_id_number)
                 client_interface.close()
-                print(f"\n{client_address} got disconnected unexpectedly!\n")
+                # The code comes here both when the client get disconnected unexpectedly and the server shutdowns.
+                #print(f"\n{client_address} got disconnected unexpectedly!\n")
                 break
             #message_type, message_content = client_message.split(":")
             message_list = client_message.split(":")
