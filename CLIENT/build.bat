@@ -1,3 +1,5 @@
+mkdir dist
+copy .\src\GroupChatClientWindow.ui .\dist
 cd src
 pyinstaller --onefile -w group_chat_client.py
 rmdir /s .\build

@@ -1,3 +1,4 @@
+mkdir dist
 cd src
 pyinstaller --onefile group_chat_server.py
 rmdir /s .\build
